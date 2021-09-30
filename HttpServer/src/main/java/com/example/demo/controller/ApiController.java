@@ -105,29 +105,28 @@ public class ApiController {
 
 	// Post Submit
 	@RequestMapping(value = "/postSubmit" , method=RequestMethod.POST)
-	public void postSubmit(@RequestParam(value = "param1") String param1,@RequestParam(value="param2") String param2 ) {
-		try {
-			CloseableHttpClient httpclient = HttpClients.createDefault();
-			HttpPost httpPost = new HttpPost("http://localhost:8080/postServer");
-			// 전달하고자 하는 PARAMETER를 List객체에 담는다
-			List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-			nvps.add(new BasicNameValuePair("param1", param1));
-			nvps.add(new BasicNameValuePair("param2", param2));
-			// UTF-8은 한글
-			httpPost.setEntity(new UrlEncodedFormEntity(nvps, "UTF-8"));
-			CloseableHttpResponse response = httpclient.execute(httpPost);
-			try {
-				System.out.println(response.getStatusLine());
-				// API서버로부터 받은 JSON 문자열 데이터
-				System.out.println(EntityUtils.toString(response.getEntity()));
-				HttpEntity entity = response.getEntity();
-				EntityUtils.consume(entity);
-			} finally {
-				response.close();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public void postSubmit(@RequestParam(value = "param1", required=false) String param1,@RequestParam(value="param2", required=false) String param2 ) {
+			System.out.println(param1);
+			System.out.println(param2);
+		
+		
+		
+		
+		
+		
+		/*
+		 * try { CloseableHttpClient httpclient = HttpClients.createDefault(); HttpPost
+		 * httpPost = new HttpPost("http://localhost:8080/postServer"); // 전달하고자 하는
+		 * PARAMETER를 List객체에 담는다 List<NameValuePair> nvps = new
+		 * ArrayList<NameValuePair>(); nvps.add(new BasicNameValuePair("param1",
+		 * param1)); nvps.add(new BasicNameValuePair("param2", param2)); // UTF-8은 한글
+		 * httpPost.setEntity(new UrlEncodedFormEntity(nvps, "UTF-8"));
+		 * CloseableHttpResponse response = httpclient.execute(httpPost); try {
+		 * System.out.println(response.getStatusLine()); // API서버로부터 받은 JSON 문자열 데이터
+		 * System.out.println(EntityUtils.toString(response.getEntity())); HttpEntity
+		 * entity = response.getEntity(); EntityUtils.consume(entity); } finally {
+		 * response.close(); } } catch (Exception e) { e.printStackTrace(); }
+		 */
 	}
 	
 	
