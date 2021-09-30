@@ -66,6 +66,13 @@ public class ApiController {
 		    System.out.println(hName + " : " + hValue + "");
 		}
 		
+		Enumeration eParams = request.getParameterNames();
+		while (eParams.hasMoreElements()) {
+		    String pName = (String)eParams.nextElement();
+		    String pValue = request.getParameter(pName);
+		    System.out.println(pName + " : " + pValue + "");
+		}
+		
 //		System.out.println(request.getHeader("referer"));
 //		System.out.println(request.getHeader("connection"));
 //		System.out.println(request.getHeader("user-agent"));
