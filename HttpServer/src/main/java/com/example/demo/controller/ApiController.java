@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,15 +59,22 @@ public class ApiController {
 	@RequestMapping(value = "/getSubmit")
 	public String getSubmit(HttpServletRequest request) {
 		
-		System.out.println(request.getHeader("referer"));
-		System.out.println(request.getHeader("connection"));
-		System.out.println(request.getHeader("user-agent"));
-		System.out.println(request.getHeader("host"));
-		System.out.println(request.getHeader("cookie"));
-		System.out.println(request.getHeader("accept"));
+		Enumeration eHeader = request.getHeaderNames();
+		while (eHeader.hasMoreElements()) {
+		    String hName = (String)eHeader.nextElement();
+		    String hValue = request.getHeader(hName);
+		    System.out.println(hName + " : " + hValue + "");
+		}
 		
-		System.out.println(request.getParameter("param1"));
-		System.out.println(request.getParameter("param2"));
+//		System.out.println(request.getHeader("referer"));
+//		System.out.println(request.getHeader("connection"));
+//		System.out.println(request.getHeader("user-agent"));
+//		System.out.println(request.getHeader("host"));
+//		System.out.println(request.getHeader("cookie"));
+//		System.out.println(request.getHeader("accept"));
+//		
+//		System.out.println(request.getParameter("param1"));
+//		System.out.println(request.getParameter("param2"));
 	
 		
 		return "완료되었습니다.";
