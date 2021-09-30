@@ -11,8 +11,6 @@ $(document).ready(function(){
   //    alert(param1);
    //   alert(param2);
       
-     
-      
       	$.ajax({
     	  url: "postSubmit", //url
     	  type: "post", //get, post 방식 
