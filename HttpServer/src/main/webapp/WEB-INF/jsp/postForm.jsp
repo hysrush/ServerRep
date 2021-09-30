@@ -4,10 +4,8 @@
 $(document).ready(function(){
    $("#okBtn").click(function(){
       alert("Hi");
-    /*   var param1 = $("#param1").val();
-      var param2 = $("#param2").val();
-
-	 */
+    var param1 = $("#param1").val();
+    var param2 = $("#param2").val();
   //    alert(param1);
    //   alert(param2);
       
@@ -15,16 +13,17 @@ $(document).ready(function(){
     	  url: "postSubmit", //url
     	  type: "post", //get, post 방식 
     	  data: {"param1" : $("#param1").val(),
-    		  "param2" : $("#param2").val()}, //넘길 파라미터 
-    	  dataType: 'json', //or xml or script or html 
+    		  "param2" : $("#param2").val(),
+   			}, //넘길 파라미터 
+    	 // dataType: 'json', //or xml or script or html 
     	  async: true, // true:비동기, false:동기
+    	 
     	  success: function(data){
-    		  if(data.RESULT=="SUCCESS"){ 
-    			  alert("ajax "+data.RESULT); 
-    			  } 
+    		 	alert('ajax success.')
     		  },
     		  error: function(json){ 
     			  alert('ajax error.'); 
+    			  console.log(json);
     		 }
       });
       

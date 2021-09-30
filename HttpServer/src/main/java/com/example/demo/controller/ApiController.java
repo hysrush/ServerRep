@@ -1,23 +1,9 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -105,12 +91,15 @@ public class ApiController {
 
 	// Post Submit
 	@RequestMapping(value = "/postSubmit" , method=RequestMethod.POST)
-	public void postSubmit(@RequestParam(value = "param1", required=false) String param1,@RequestParam(value="param2", required=false) String param2 ) {
+	public @ResponseBody String postSubmit(@RequestParam(value = "param1", required=false) String param1,@RequestParam(value="param2", required=false) String param2 ) {
 			System.out.println(param1);
 			System.out.println(param2);
 		
+			return "success";
+	
+			
 		
-		
+		  // json 형태로 값을 줘야한다.
 		
 		
 		
